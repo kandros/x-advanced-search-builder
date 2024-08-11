@@ -3,14 +3,327 @@
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>X Advanced Search Filter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-900 text-gray-200 font-[Inter,sans-serif]">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 class="text-4xl font-bold text-center mb-8 text-blue-400">X Advanced Search Filter</h1>
+      <main>
+        <form id="filters-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="from" class="block text-sm font-semibold mb-1">From</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets sent by a specific account</p>
+              <input
+                id="from"
+                name="from"
+                type="text"
+                placeholder="username"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">from:username</code>
+            </div>
+
+            <div>
+              <label for="to" class="block text-sm font-semibold mb-1">To</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets sent in reply to a specific account</p>
+              <input
+                id="to"
+                name="to"
+                type="text"
+                placeholder="username"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">to:username</code>
+            </div>
+
+            <div>
+              <label for="mention" class="block text-sm font-semibold mb-1">Mention</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets mentioning a specific account</p>
+              <input
+                id="mention"
+                name="mention"
+                type="text"
+                placeholder="username"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">@username</code>
+            </div>
+
+            <div>
+              <label for="phrase" class="block text-sm font-semibold mb-1">Phrase</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets containing an exact phrase</p>
+              <input
+                id="phrase"
+                name="phrase"
+                type="text"
+                placeholder="exact phrase"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">"phrase"</code>
+            </div>
+
+            <div>
+              <label for="hashtag" class="block text-sm font-semibold mb-1">Hashtag</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets containing a specific hashtag</p>
+              <input
+                id="hashtag"
+                name="hashtag"
+                type="text"
+                placeholder="hashtag"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">#hashtag</code>
+            </div>
+
+            <div>
+              <label for="url" class="block text-sm font-semibold mb-1">URL</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets containing links to a specific website</p>
+              <input
+                id="url"
+                name="url"
+                type="text"
+                placeholder="example.com"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">url:example.com</code>
+            </div>
+
+            <div>
+              <label for="since" class="block text-sm font-semibold mb-1">Since</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets since a specific date</p>
+              <input
+                id="since"
+                name="since"
+                type="date"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">since:YYYY-MM-DD</code>
+            </div>
+
+            <div>
+              <label for="until" class="block text-sm font-semibold mb-1">Until</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets until a specific date</p>
+              <input
+                id="until"
+                name="until"
+                type="date"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">until:YYYY-MM-DD</code>
+            </div>
+
+            <div>
+              <label for="lang" class="block text-sm font-semibold mb-1">Language</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets in a specific language</p>
+              <input
+                id="lang"
+                name="lang"
+                type="text"
+                placeholder="en"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">lang:iso</code>
+            </div>
+
+            <div>
+              <label for="exclude" class="block text-sm font-semibold mb-1">Exclude</label>
+              <p class="text-xs text-gray-400 mb-2">Exclude tweets containing a specific word</p>
+              <input
+                id="exclude"
+                name="exclude"
+                type="text"
+                placeholder="word to exclude"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">-word</code>
+            </div>
+
+            <div>
+              <label for="min_retweets" class="block text-sm font-semibold mb-1">Minimum Retweets</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets with a minimum number of retweets</p>
+              <input
+                id="min_retweets"
+                name="min_retweets"
+                type="number"
+                placeholder="100"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">min_retweets:number</code>
+            </div>
+
+            <div>
+              <label for="min_faves" class="block text-sm font-semibold mb-1">Minimum Likes</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets with a minimum number of likes</p>
+              <input
+                id="min_faves"
+                name="min_faves"
+                type="number"
+                placeholder="100"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">min_faves:number</code>
+            </div>
+
+            <div>
+              <label for="near" class="block text-sm font-semibold mb-1">Near Location</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets sent near a specific location</p>
+              <input
+                id="near"
+                name="near"
+                type="text"
+                placeholder="City, Country"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">near:location</code>
+            </div>
+
+            <div>
+              <label for="within" class="block text-sm font-semibold mb-1">Within Radius</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets within a specific radius of a location</p>
+              <input
+                id="within"
+                name="within"
+                type="number"
+                placeholder="15"
+                class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              />
+              <code class="text-xs text-gray-400 mt-1 block">within:radius</code>
+            </div>
+
+            <div class="col-span-2">
+              <label class="block text-sm font-semibold mb-1">OR</label>
+              <p class="text-xs text-gray-400 mb-2">Tweets containing either of two terms</p>
+              <div class="flex space-x-2">
+                <input
+                  id="or1"
+                  name="or1"
+                  type="text"
+                  placeholder="term1"
+                  class="flex-1 bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                />
+                <input
+                  id="or2"
+                  name="or2"
+                  type="text"
+                  placeholder="term2"
+                  class="flex-1 bg-gray-800 border border-gray-700 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                />
+              </div>
+              <code class="text-xs text-gray-400 mt-1 block">term1 OR term2</code>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4">
+            <div class="flex items-center space-x-2">
+              <input
+                id="media"
+                name="media"
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-500 border-gray-700 bg-gray-800"
+              />
+              <div>
+                <label for="media" class="text-sm font-semibold">Media</label>
+                <p class="text-xs text-gray-400">Tweets containing media (images or videos)</p>
+                <code class="text-xs text-gray-400">filter:media</code>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <input
+                id="links"
+                name="links"
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-500 border-gray-700 bg-gray-800"
+              />
+              <div>
+                <label for="links" class="text-sm font-semibold">Links</label>
+                <p class="text-xs text-gray-400">Tweets containing links</p>
+                <code class="text-xs text-gray-400">filter:links</code>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <input
+                id="filter_follows"
+                name="filter_follows"
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-500 border-gray-700 bg-gray-800"
+              />
+              <div>
+                <label for="filter_follows" class="text-sm font-semibold">From Accounts I Follow</label>
+                <p class="text-xs text-gray-400">Tweets from people you follow</p>
+                <code class="text-xs text-gray-400">filter:follows</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition duration-300"
+            >
+              Generate Search Query
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script>
+      const form = document.getElementById("filters-form") as HTMLFormElement;
+
+      const mapToFilterMap = {
+        from: (v: string) => `from:${v}`,
+        to: (v: string) => `to:${v}`,
+        mention: (v: string) => `@${v}`,
+        phrase: (v: string) => `"${v}"`,
+        hashtag: (v: string) => `#${v}`,
+        url: (v: string) => `url:${v}`,
+        since: (v: string) => `since:${v}`,
+        until: (v: string) => `until:${v}`,
+        lang: (v: string) => `lang:${v}`,
+        exclude: (v: string) => `-${v}`,
+        min_retweets: (v: string) => `min_retweets:${v}`,
+        min_faves: (v: string) => `min_faves:${v}`,
+        near: (v: string) => `near:${v}`,
+        within: (v: string) => `within:${v}km`,
+        media: (v: string) => (v === "on" ? "filter:media" : ""),
+        links: (v: string) => (v === "on" ? "filter:links" : ""),
+        filter_follows: (v: string) => (v === "on" ? "filter:follows" : ""),
+      };
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target as HTMLFormElement);
+        const searchParams: string[] = [];
+
+        formData.forEach((value, key) => {
+          if (value && value !== "") {
+            if (key === "or1" && formData.get("or2")) {
+              searchParams.push(`${value} OR ${formData.get("or2")}`);
+            } else if (key !== "or2") {
+              const mapFunction = mapToFilterMap[key as keyof typeof mapToFilterMap] || ((v: string) => `${key}:${v}`);
+              searchParams.push(mapFunction(value as string));
+            }
+          }
+        });
+
+        const searchQuery = searchParams.join(" ");
+        const encodedQuery = encodeURIComponent(searchQuery);
+        const twitterSearchUrl = `https://twitter.com/search?q=${encodedQuery}&src=typed_query`;
+
+        console.log("Search Query:", searchQuery);
+        console.log("Twitter Search URL:", twitterSearchUrl);
+
+        // Open the Twitter search in a new tab
+        window.open(twitterSearchUrl, "_blank");
+      });
+    </script>
+  </body>
 </html>

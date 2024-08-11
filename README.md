@@ -1,47 +1,21 @@
-# Astro Starter Kit: Minimal
-
-```sh
-npm create astro@latest -- --template minimal
+```markdown
+| Operator           | Description                                               |
+|--------------------|-----------------------------------------------------------|
+| from:username      | Tweets sent by a specific account                         |
+| to:username        | Tweets sent in reply to a specific account                |
+| @username          | Tweets mentioning a specific account                      |
+| "phrase"           | Tweets containing an exact phrase                         |
+| #hashtag           | Tweets containing a specific hashtag                      |
+| url:example.com    | Tweets containing links to a specific website             |
+| since:YYYY-MM-DD   | Tweets sent on or after a specific date                   |
+| until:YYYY-MM-DD   | Tweets sent before a specific date                        |
+| lang:iso           | Tweets in a specific language (e.g., lang:en for English) |
+| filter:media       | Tweets containing media (images or videos)                |
+| filter:links       | Tweets containing links                                   |
+| -word              | Exclude tweets containing a specific word                 |
+| OR                 | Tweets containing either of two terms                     |
+| min_retweets:number| Tweets with a minimum number of retweets                  |
+| min_faves:number   | Tweets with a minimum number of likes                     |
+| near:location      | Tweets sent near a specific location                      |
+| within:radius      | Tweets within a specific radius of a location             |
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
